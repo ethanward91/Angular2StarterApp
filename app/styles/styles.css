@@ -1,0 +1,15 @@
+.contact-container{
+    padding: 5px;
+}
+.contact-panel{
+    background: whitesmoke;
+    border-radius: 2px;
+    padding: 5px;
+}
+.contact-panel:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.pull-right{
+    float:right;
+}
