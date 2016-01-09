@@ -4,4 +4,4 @@ import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2
 import {AppComponent} from './app';
 import {ContactsService} from './contacts/services/contacts-service';
 
-bootstrap(AppComponent, [ContactsService, ROUTER_PROVIDERS]);
+bootstrap(AppComponent, [ROUTER_PROVIDERS]);

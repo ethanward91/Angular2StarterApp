@@ -1,11 +1,11 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {ContactModel} from '../services/contact-model';
 import {RouterLink} from 'angular2/router';
 
 @Component({ 
     selector: 'contact-item', 
     template: `       <div class="contact-container">
-                            <div class="row contact-panel" [routerLink]="['EditContact', {id:contact.id}]">
+                            <div class="row contact-panel" (click)="selected.emit(contact)">
                                 <div class="col-sm-3">  
                                     <img [src]="contact.img" alt="" class="img-circle img-fluid">
                                 </div>
@@ -21,5 +21,6 @@ import {RouterLink} from 'angular2/router';
     directives: [RouterLink]
 })
 export class ContactItem{
-    @Input()contact: ContactModel
+    @Input()contact: ContactModel;
+    @Output() selected = new EventEmitter();
 }
