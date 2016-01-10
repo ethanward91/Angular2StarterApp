@@ -3,6 +3,7 @@ import {NavComponent} from './nav/components/nav';
 import {SideMenuComponent} from './nav/components/side-menu';
 
 import {ContactComponent} from './contacts/components/contact-container';
+import {TodosComponent} from './todo/components/todo-container';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 
 @Component({ 
@@ -13,7 +14,8 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 })
 @RouteConfig([
     {path:'/', redirectTo: ['Contacts']},
-    {path:'/contacts/...', component: ContactComponent, name: 'Contacts', useAsDefault: true}
+    {path:'/contacts/...', component: ContactComponent, name: 'Contacts', useAsDefault: true},
+    {path: '/todos/...', component: TodosComponent, name:'Todos'}
 ])
 export class AppComponent{
   

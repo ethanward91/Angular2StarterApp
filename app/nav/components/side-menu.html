@@ -1,11 +1,11 @@
-<div class="menu-container">
+<div class="menu-container hidden-sm-down">
     <div class="menu">
         <a [routerLink]="['Contacts']">
             <div class="item" hoverBlurr>
-               <span><i class="fa fa-home"></i> HOME</span>
+               <span><i class="fa fa-users"></i> CONTACTS</span>
             </div>
         </a>
-        <a>
+        <a [routerLink]="['Todos']">
             <div class="item" hoverBlurr>
                <span><i class="fa fa-sticky-note"></i> TODOS</span>
             </div>

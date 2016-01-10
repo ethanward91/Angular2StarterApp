@@ -1,0 +1,36 @@
+ <div class="row">
+     <div class="col-sm-3">
+        <h4>TODOS</h4>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <a class="btn btn-primary btn-block" [routerLink]="['AddTodo']">ADD NEW TODO</a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-offset-2">
+        <search-box [placeHolder]="'SEARCH TODOS...'" (value)="searchText = $event"></search-box>
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row" *ngFor="#todo of todoService.todos | filter: searchText">
+            <div class="col-xs-12" *ngIf="todo.status != 'completed'">
+                 <div padding="5px">
+                    <div class="row todo-panel" padding="5px">
+                        <div class="col-sm-10">
+                            <h5>{{todo.name | uppercase}}</h5>
+                            <small>
+                                <div>{{todo.notes | uppercase}}</div>
+                            </small>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary-outline btn-block pull-right" (click)="todoService.completeTodo(todo)">Complete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="todoService.isEmpty"> <h5>ALL DONE!</h5></div>
+    </div>
+</div>
