@@ -9,15 +9,15 @@
     </div>
     <div class="col-md-4 col-sm-offset-2">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Contacts..." aria-describedby="search-addon" [(ngModel)]="search">
+            <input type="text" class="form-control" placeholder="Search Contacts..." aria-describedby="search-addon" #search (keyup)="0">
             <span class="input-group-addon" id="search-addon"><i class="fa fa-search"></i></span>   
         </div>
     </div>
 </div>
-
+<hr/>
 <div class="row">
     <div class="col-sm-6">
-        <div class="row" *ngFor="#contact of contacts | filter: search : 'name'">
+        <div class="row" *ngFor="#contact of contacts | filter: search.value : 'name'">
             <div class="col-md-12  col-xs-12">
                 <contact-item [contact]="contact" (selected)="selectedContact = $event"></contact-item>
             </div>

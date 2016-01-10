@@ -1,26 +1,16 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {ContactModel} from '../services/contact-model';
 import {RouterLink} from 'angular2/router';
+import {HoverBlurrDirective} from '../../common/directives/on-hover-directive';
+import {PaddingDirective} from '../../common/directives/padding-directive';
 
 @Component({ 
     selector: 'contact-item', 
-    template: `       <div class="contact-container">
-                            <div class="row contact-panel" (click)="selected.emit(contact)">
-                                <div class="col-sm-3">  
-                                    <img [src]="contact.img" alt="" class="img-circle img-fluid">
-                                </div>
-                                <div class="col-sm-6">
-                                    <h4>{{contact.name}}</h4>
-                                    <small>
-                                        <div>{{contact.email}}</div>
-                                        <div>{{contact.phone}}</div>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>`,
-    directives: [RouterLink]
+    templateUrl: 'app/contacts/components/contact-item.html',
+    directives: [RouterLink, HoverBlurrDirective, PaddingDirective],
+    styleUrls: ['app/styles/contact-item.css']
 })
 export class ContactItem{
     @Input()contact: ContactModel;
-    @Output() selected = new EventEmitter();
+    @Output() selected = new EventEmitter<ContactModel>();
 }
