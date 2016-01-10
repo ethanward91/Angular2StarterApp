@@ -7,12 +7,12 @@ export class ContactsService {
     contacts: Array<ContactModel> = [];
     
     constructor(private _router: Router){
-        this.contacts.push(new ContactModel("1", "Luke Skywalker", "", "", "http://i.kinja-img.com/gawker-media/image/upload/w4xalikhxwwc4tcrnzor.jpg"));
-        this.contacts.push(new ContactModel("2", "Princess Leia", "", "", "http://images-cdn.moviepilot.com/image/upload/c_fill,h_1200,w_1600/t_mp_quality/image-star-wars-episode-vii-does-princess-leia-have-a-larger-role-than-we-think-jpeg-63031.jpg"));
-        this.contacts.push(new ContactModel("3", "Han Solo", "", "", "http://s3.amazonaws.com/digitaltrends-uploads-prod/2012/11/han-solo.jpeg"));
-        this.contacts.push(new ContactModel("4", "Chewy", "", "", "http://chewyandthegang.com/sitebuilder/images/CHEWY_CHEWBACCA-221x235.jpg"));
-        this.contacts.push(new ContactModel("5", "R2-D2", "", "", "http://www.galacticbinder.com/images/articles/R2-D2.jpg"));
-        this.contacts.push(new ContactModel("6", "C-3PO", "", "", "https://pbs.twimg.com/profile_images/22039052/03.01.c3po.jpg"));
+        this.contacts.push(new ContactModel("1", "Luke Skywalker", "skywalker@theforce.net", "1597534568", "http://i.kinja-img.com/gawker-media/image/upload/w4xalikhxwwc4tcrnzor.jpg"));
+        this.contacts.push(new ContactModel("2", "Princess Leia", "leia.organa@theforce.net", "1597534568", "http://images-cdn.moviepilot.com/image/upload/c_fill,h_1200,w_1600/t_mp_quality/image-star-wars-episode-vii-does-princess-leia-have-a-larger-role-than-we-think-jpeg-63031.jpg"));
+        this.contacts.push(new ContactModel("3", "Han Solo", "solo@theforce.net", "1597534568", "http://s3.amazonaws.com/digitaltrends-uploads-prod/2012/11/han-solo.jpeg"));
+        this.contacts.push(new ContactModel("4", "Chewy", "chewy123@wookie.com", "1597534568", "http://chewyandthegang.com/sitebuilder/images/CHEWY_CHEWBACCA-221x235.jpg"));
+        this.contacts.push(new ContactModel("5", "R2-D2", "", "1597534568", "http://www.galacticbinder.com/images/articles/R2-D2.jpg"));
+        this.contacts.push(new ContactModel("6", "C-3PO", "", "1597534568", "https://pbs.twimg.com/profile_images/22039052/03.01.c3po.jpg"));
     }
     
     getContacts():Array<ContactModel>{
