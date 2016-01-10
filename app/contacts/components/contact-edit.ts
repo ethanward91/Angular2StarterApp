@@ -1,18 +1,15 @@
 import {Component, OnInit} from 'angular2/core';
+import {RouteParams} from 'angular2/router';
 import {ContactModel} from '../services/contact-model';
 import {ContactsService} from '../services/contacts-service';
-import {RouteParams} from 'angular2/router';
 import {ContactForm} from './contact-form';
+import {ViewHeader} from '../../common/common';
 
 @Component({ 
     selector: 'contact-edit', 
-    template: `<div class="row">
-                    <div class="col-md-4 col-sm-offset-2 col-xs-12">
-                        <h1>Edit Contact</h1>
-                    </div>
-                </div>
+    template: `<view-header [title]="'Edit Contact'"></view-header>
                 <contact-form [contact]="contact" (save)="contactService.updateContact($event)"></contact-form>`,
-    directives: [ContactForm]
+    directives: [ContactForm, ViewHeader]
 })
 export class ContactEdit implements OnInit {
     contact: ContactModel;

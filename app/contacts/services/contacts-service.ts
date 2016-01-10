@@ -5,6 +5,7 @@ import {ContactModel} from './contact-model';
 @Injectable()
 export class ContactsService {
     contacts: Array<ContactModel> = [];
+    private _defaultImage: string = "http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg";
     
     constructor(private _router: Router){
         this.contacts.push(new ContactModel("1", "Luke Skywalker", "skywalker@theforce.net", "1597534568", "http://i.kinja-img.com/gawker-media/image/upload/w4xalikhxwwc4tcrnzor.jpg"));
@@ -24,6 +25,9 @@ export class ContactsService {
     }
     
     addContact(contact: ContactModel){
+            
+        contact.img = contact.img || this._defaultImage;
+    
         contact.id = (this.contacts.length + 1).toString();
         this.contacts = [...this.contacts, contact];
         

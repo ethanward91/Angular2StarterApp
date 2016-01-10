@@ -2,16 +2,13 @@ import {Component, OnInit} from 'angular2/core';
 import {ContactModel} from '../services/contact-model';
 import {ContactsService} from '../services/contacts-service';
 import {ContactForm} from './contact-form';
+import {ViewHeader} from '../../common/common';
 
 @Component({ 
     selector: 'contact-add', 
-    template: `<div class="row">
-                    <div class="col-md-4 col-sm-offset-2 col-xs-12">
-                        <h1>Add Contact</h1>
-                    </div>
-                </div>
+    template: `<view-header [title]="'Add Contact'"></view-header>
                 <contact-form [contact]="contact" (save)="contactService.addContact($event)"></contact-form>`,
-    directives: [ContactForm]
+    directives: [ContactForm, ViewHeader]
 })
 export class ContactAdd implements OnInit {
     contact: ContactModel;
