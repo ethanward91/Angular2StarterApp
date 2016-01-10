@@ -1,0 +1,30 @@
+.menu-container{
+    background-color: #ECEFF1;
+    border-right: 1px solid lightgray;
+    height: 100%;
+    width: 220px;
+    box-shadow: 8px -6px 17px -5px lightgray;
+    margin-top: -45px;
+    position: fixed;
+    overflow: hidden;
+}
+a {
+     text-decoration: none !important;
+}
+
+.item{
+    border-bottom: 1px solid #CFD8DC;
+    height: 50px;
+    width: 100%;
+    margin-top: 15px;
+    text-align: left;
+    color: #536E7A;
+}
+.item > span{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.item > span > i{
+    padding-right: 15px;
+}
