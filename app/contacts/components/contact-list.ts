@@ -4,17 +4,17 @@ import {ContactModel} from '../services/contact-model';
 import {ContactItem} from './contact-item';
 import {RouterLink} from 'angular2/router';
 import {ContactDetail} from './contact-details';
-import {FilterPipe} from '../pipes/filter-pipe';
+import {SearchBox, FilterPipe} from '../../common/common';
 
 @Component({ 
     selector: 'contact-list', 
     templateUrl: 'app/contacts/components/contact-list.html',
-    directives: [ContactItem, ContactDetail, RouterLink],
+    directives: [ContactItem, ContactDetail, RouterLink, SearchBox],
     pipes: [FilterPipe]
 })
 export class ContactList {
     contacts: Array<ContactModel>
-    search:string = "";
+    searchText:string = "";
     currentId: string;
     constructor(public contactService: ContactsService){}
     

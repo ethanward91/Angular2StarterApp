@@ -6,8 +6,13 @@
 import {ViewHeaderComponent} from './components/view-header-component';
 import {HoverBlurrDirective} from './directives/on-hover-directive';
 import {PaddingDirective} from './directives/padding-directive';
+import {SearchBoxComponent} from './components/search-box-component';
+import {FilterPipe as Filter} from './pipes/filter-pipe';
 
 export var ViewHeader = ViewHeaderComponent;
 export var HoverBlurr = HoverBlurrDirective;
 export var Padding = PaddingDirective;
-export var COMMON_APP_DIRECTIVES = [ViewHeaderComponent, HoverBlurrDirective, PaddingDirective];
+export var SearchBox = SearchBoxComponent;
+export var FilterPipe = Filter;
+export var COMMON_APP_DIRECTIVES = [ViewHeaderComponent, HoverBlurrDirective, PaddingDirective, SearchBoxComponent];
+export var COMMON_APP_PIPES = [FilterPipe];
