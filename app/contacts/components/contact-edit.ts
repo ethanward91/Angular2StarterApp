@@ -17,8 +17,11 @@ export class ContactEdit implements OnInit {
         
     }
     
-    ngOnInit(){
+    ngOnInit()
+    {
+        this.contact = new ContactModel();
         const id = this._routerParams.get("id");
-        this.contact = this.contactService.getContact(id);
+        this.contactService.getContact(id)
+            .subscribe(contact => this.contact = contact);
     }
 }

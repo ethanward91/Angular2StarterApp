@@ -1,0 +1,17 @@
+{
+    "name": "angular2-server-api",
+    "main": "bin/server.js",
+    "scripts": {
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
+        "server": "\"node bin/server.js\"",
+        "start": "concurrent \"npm run tsc:w\" \"npm run server\" "
+    },
+    "dependencies": {
+        "express": "~4.0.0",
+        "mongoose": "~3.6.13",
+        "body-parser": "~1.0.1",
+        "typescript": "^1.7.3",
+        "concurrently": "^1.0.0"
+    }
+}

@@ -14,7 +14,7 @@
 <hr/>
 <div class="row">
     <div class="col-sm-12">
-        <div class="row" *ngFor="#todo of todoService.todos | filter: searchText">
+        <div class="row" *ngFor="#todo of todos | filter: searchText">
             <div class="col-xs-12" *ngIf="todo.status != 'completed'">
                  <div padding="5px">
                     <div class="row todo-panel" padding="5px">

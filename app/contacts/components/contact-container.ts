@@ -3,13 +3,14 @@ import {RouterOutlet, RouteConfig} from 'angular2/router';
 import {ContactList} from './contact-list';
 import {ContactAdd} from './contact-add';
 import {ContactEdit} from './contact-edit';
+import {HTTP_PROVIDERS} from 'angular2/http';
 import {ContactsService} from '../services/contacts-service';
 
 @Component({ 
     selector: 'contact-container', 
     template: `<router-outlet></router-outlet>`,
     directives: [RouterOutlet],
-    providers: [ContactsService]
+    providers: [ContactsService, HTTP_PROVIDERS]
 })
 @RouteConfig([
     {path: '/', component: ContactList, name: "ContactList", useAsDefault:true},

@@ -1,67 +1,55 @@
 import {Injectable, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
+import {Http, Headers} from 'angular2/http';
 import {TodoModel} from './todo-model';
 
 @Injectable()
 export class TodoService{
     todos: Array<TodoModel> = new Array<TodoModel>();
+    private _baseUrl = 'http://localhost:8080';
     isEmpty: boolean = false;
     
-    constructor(private _router: Router){
-        this.todos.push(new TodoModel((this.todos.length + 1).toString(), "Take out trash", "Make sure to gather up from all rooms."));
-        this.todos.push(new TodoModel((this.todos.length + 1).toString(), "Mop floors", ""));
-        this.todos.push(new TodoModel((this.todos.length + 1).toString(), "Clean gutters", "Need to pick up a new garden hose from the hardware store."));        
+    constructor(private _router: Router, private _http: Http){
     }
     
     getTodos(){
-        return this.todos;
-    }
-    
-    getTodo(id: string){
-        return this.todos[parseInt(id) - 1];
+        return this._http.get(this._baseUrl + '/api/Todos')
+            .map(res =>
+            {
+                this.checkForMoreTodos(res.json());
+                return res.json();
+            });
     }
     
     addTodo(todo: TodoModel){
         
-        todo.id = (this.todos.length + 1).toString();
-        this.todos = [...this.todos, todo];
-        
-        this._router.navigate(["Todos"]);
-        
-        this.checkForMoreTodos();
-    }
-    
-    updateTodo(todo: TodoModel){
-        
-        const i = this.todos.indexOf(todo);
-        
-        this.todos = [
-            ...this.todos.slice(0, i),
-            todo,
-            ...this.todos.slice(i + 1)
-        ];
-        
-        this._router.navigate(["Todos"]);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        return this._http.post(this._baseUrl + '/api/Todos', JSON.stringify(todo), { headers: headers })
+            .subscribe(() =>
+            {
+                this._router.navigate(["Todos"]);
+            });
     }
     
     completeTodo(todo: TodoModel){
         
         todo.status = "completed";
         
-        const i = this.todos.indexOf(todo);
-        
-        this.todos = [
-            ...this.todos.slice(0, i),
-            todo,
-            ...this.todos.slice(i + 1)
-        ];
-        
-        this.checkForMoreTodos();
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        return this._http.put(this._baseUrl + '/api/Todos', JSON.stringify(todo), { headers: headers })
+            .subscribe(() =>
+            {
+                return this.getTodos();
+            });
     }
     
-    private checkForMoreTodos(){
+    private checkForMoreTodos(todos: Array<TodoModel>){
         var allCompleted = true;
-        this.todos.forEach(item =>{
+        todos.forEach(item =>{
             if(item.status != 'completed'){
                 allCompleted = false;
             }

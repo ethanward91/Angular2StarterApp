@@ -19,7 +19,11 @@ export class ContactList {
     currentId: string;
     constructor(public contactService: ContactsService){}
     
-    ngOnInit(){
-        this.contacts = this.contactService.getContacts();
+    ngOnInit()
+    {
+        this.contacts = new Array<ContactModel>();
+
+        this.contactService.getContacts()
+            .subscribe(contacts => this.contacts = contacts);
     }
 }

@@ -3,5 +3,5 @@ export class ContactModel{
                 public name:string = "", 
                 public phone:string = "", 
                 public email:string = "", 
-                public img: string = ""){    }
+                public image: string = ""){    }
 }
