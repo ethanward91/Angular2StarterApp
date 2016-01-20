@@ -52,4 +52,11 @@ export class ContactsService {
             });
     }
     
+    deleteContact(id: string){
+        return this._http.delete(this._baseUrl + "/api/Contacts/" + id)
+            .map(res => {
+                return res.json()
+            });
+    }
+    
 }

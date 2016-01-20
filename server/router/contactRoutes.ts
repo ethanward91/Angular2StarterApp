@@ -29,6 +29,10 @@ export class ContactRoutes{
                 let _context = new ContactsContext();
                 
                 res.json(_context.findById(req.params.id));
+            })
+            .delete((req, res) => {
+                let _context = new ContactsContext();
+                res.json(_context.remove(req.params.id));
             });
         return this.router;
     }

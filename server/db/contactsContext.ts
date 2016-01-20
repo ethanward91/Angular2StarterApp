@@ -38,10 +38,21 @@ export class ContactsContext{
     }
     
     insert(contact: Contact): Contact{
-         contact.id = Common.generateUUID();
+        contact.id = Common.generateUUID();
         
         ContactsContext._db.contacts = [...ContactsContext._db.contacts, contact];
         
         return this.findById(contact.id);
+    }
+    
+    remove(id: string){
+        const i = ContactsContext._db.contacts.indexOf(this.findById(id));
+        
+        ContactsContext._db.contacts = [
+            ...ContactsContext._db.contacts.slice(0, i),
+            ...ContactsContext._db.contacts.slice(i + 1)
+        ];
+        
+        return this.find();
     }
 }

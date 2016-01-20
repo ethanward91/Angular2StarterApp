@@ -5,7 +5,8 @@
         "tsc": "tsc",
         "tsc:w": "tsc -w",
         "server": "\"node bin/server.js\"",
-        "start": "concurrent \"npm run tsc:w\" \"npm run server\" "
+        "tsd": "tsd install",
+        "start": "concurrent   \"npm run tsd\"  \"npm run tsc:w\" \"npm run server\" "
     },
     "dependencies": {
         "express": "~4.0.0",

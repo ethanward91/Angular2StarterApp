@@ -4,13 +4,13 @@ import {ContactModel} from '../services/contact-model';
 import {ContactItem} from './contact-item';
 import {RouterLink} from 'angular2/router';
 import {ContactDetail} from './contact-details';
-import {SearchBox, FilterPipe} from '../../common/common';
+import {SearchBox, FilterPipe, Padding} from '../../common/common';
 import {NgClass} from 'angular2/common';
 
 @Component({ 
     selector: 'contact-list', 
     templateUrl: 'app/contacts/components/contact-list.html',
-    directives: [ContactItem, ContactDetail, RouterLink, SearchBox, NgClass],
+    directives: [ContactItem, ContactDetail, RouterLink, SearchBox, NgClass, Padding],
     pipes: [FilterPipe]
 })
 export class ContactList {
@@ -25,5 +25,10 @@ export class ContactList {
 
         this.contactService.getContacts()
             .subscribe(contacts => this.contacts = contacts);
+    }
+    
+    removeContact(id){
+        this.contactService.deleteContact(id)
+           .subscribe(contacts => this.contacts = contacts);
     }
 }

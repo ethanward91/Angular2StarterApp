@@ -14,4 +14,5 @@ import {COMMON_APP_DIRECTIVES, COMMON_APP_PIPES} from '../../common/common';
 export class ContactItem{
     @Input()contact: ContactModel;
     @Output() selected = new EventEmitter<ContactModel>();
+    @Output() delete = new EventEmitter<string>();
 }
